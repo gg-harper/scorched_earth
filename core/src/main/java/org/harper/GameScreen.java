@@ -19,6 +19,7 @@ import java.util.Iterator;
 public class GameScreen implements Screen {
 
     final Main game;
+    private Battlefield battlefield;
     Texture dropImage;
     Texture bucketImage;
     Texture tankImage;

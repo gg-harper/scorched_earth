@@ -38,6 +38,7 @@ public class GameScreen implements Screen {
         dropImage = new Texture(Gdx.files.internal("drop.png"));
         bucketImage = new Texture(Gdx.files.internal("bucket.png"));
         tankImage = new Texture(Gdx.files.internal("tank1_64.png"));
+//        Animation<TextureAtlas.AtlasRegion> dropAnimation = new Animation<TextureAtlas.AtlasRegion>(0.1f, dropImage,
 
         // load the drop sound effect and the rain background "music"
         dropSound = Gdx.audio.newSound(Gdx.files.internal("drop.wav"));
