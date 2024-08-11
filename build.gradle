@@ -10,7 +10,6 @@ buildscript {
   }
   dependencies {
 
-
   }
 }
 
@@ -73,12 +72,12 @@ subprojects {
   dependencies {
 
     *//**
-     * If you do have some classes to test in os specific code you may want to uncomment
-     * some of these lines.
-     *
-     * BUT: I recommend to create seperate test sub projects for each platform. Trust me :)
-     *
-     *//*
+ * If you do have some classes to test in os specific code you may want to uncomment
+ * some of these lines.
+ *
+ * BUT: I recommend to create seperate test sub projects for each platform. Trust me :)
+ *
+ *//*
 
 //        compile project(":android")
 //        compile project(":html")

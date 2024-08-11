@@ -7,43 +7,35 @@ import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
-import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ScreenUtils;
-import com.badlogic.gdx.utils.TimeUtils;
-
-import java.util.Iterator;
 
 public class GameScreen implements Screen {
 
     final Main game;
     private Battlefield battlefield;
-    Texture dropImage;
-    Texture bucketImage;
-    Texture tankImage;
-    Sound dropSound;
-    Music rainMusic;
-    OrthographicCamera camera;
+    final Texture dropImage;
+    final Texture bucketImage;
+    final Texture tankImage;
+    final Sound shotSound;
+    final Music music;
+    final OrthographicCamera camera;
 //    Rectangle bucket;
-    Rectangle tank;
-    Rectangle gun;
+    final Rectangle tank;
+//    final Rectangle gun;
 //    Array<Rectangle> rainDrops;
-    long lastDropTime;
-    int dropsGathered;
 
     public GameScreen(final Main game) {
         this.game = game;
-        // load the images for the droplet and the bucket, 64x64 pixels each
         dropImage = new Texture(Gdx.files.internal("drop.png"));
         bucketImage = new Texture(Gdx.files.internal("bucket.png"));
         tankImage = new Texture(Gdx.files.internal("tank1_64.png"));
 
         // load the drop sound effect and the rain background "music"
-        dropSound = Gdx.audio.newSound(Gdx.files.internal("drop.wav"));
-        rainMusic = Gdx.audio.newMusic(Gdx.files.internal("rain.mp3"));
-        rainMusic.setLooping(true);
+        shotSound = Gdx.audio.newSound(Gdx.files.internal("drop.wav"));
+        music = Gdx.audio.newMusic(Gdx.files.internal("rain.mp3"));
+        music.setLooping(true);
 
         // create the camera and the SpriteBatch
         camera = new OrthographicCamera();
