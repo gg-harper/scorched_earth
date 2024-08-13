@@ -8,6 +8,6 @@ import lombok.Getter;
 @AllArgsConstructor
 public class Tank {
     private String name;
-    private Vector2 position;
-    private Vector2 angle;
+    private Position position;
+    private int angle;
 }

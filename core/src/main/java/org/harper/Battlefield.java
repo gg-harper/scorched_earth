@@ -1,6 +1,7 @@
 package org.harper;
 
+import java.util.List;
+
 public class Battlefield {
-    public Battlefield() {
-    }
+    private List<Tank> tanks;
 }
