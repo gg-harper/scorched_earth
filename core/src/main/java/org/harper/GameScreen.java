@@ -21,7 +21,7 @@ public class GameScreen implements Screen {
     final Sound shotSound;
     final Music music;
     final OrthographicCamera camera;
-    final Rectangle tank;
+    final Tank tank;
 //    final Rectangle gun;
 
     public GameScreen(final Main game) {
@@ -39,7 +39,7 @@ public class GameScreen implements Screen {
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 800, 480);
 
-        tank = new Rectangle();
+        tank = new Tank();
         tank.x = 800 / 2 - 64 / 2; // center the tank horizontally
         tank.y = 480 / 2 - 64 / 2;
         tank.width = 64;
@@ -59,6 +59,7 @@ public class GameScreen implements Screen {
         game.batch.setProjectionMatrix(camera.combined);
         game.batch.begin();
         game.batch.draw(tankImage, tank.x, tank.y, tank.width, tank.height);
+        tank.fire();
 
         game.batch.end();
 
