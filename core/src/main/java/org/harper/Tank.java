@@ -1,6 +1,5 @@
 package org.harper;
 
-import com.badlogic.gdx.math.Vector2;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -10,4 +9,8 @@ public class Tank {
     private String name;
     private Position position;
     private int angle;
+
+    public Shell fire() {
+        return Shell.builder().build();
+    }
 }

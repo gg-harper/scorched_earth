@@ -42,7 +42,7 @@ public class Shell implements Pool.Poolable {
     }
 
     public void update(Vector2 acceleration) {
-        position.add(velocity);
+        position.move(velocity);
         velocity.add(acceleration);
         checkPosition();
     }

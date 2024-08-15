@@ -59,6 +59,7 @@ public class GameScreen implements Screen {
         game.batch.setProjectionMatrix(camera.combined);
         game.batch.begin();
         game.batch.draw(tankImage, tank.x, tank.y, tank.width, tank.height);
+
         game.batch.end();
 
         if (Gdx.input.isTouched()) {
