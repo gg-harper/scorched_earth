@@ -19,6 +19,7 @@ public class GameScreen implements Screen {
     final private Texture tankImage;
     final private Sound shotSound;
     final private Sound blastSound;
+    final private Sound tankEngine;
     final private Music music;
     final private OrthographicCamera camera;
     final private Tank tank;
@@ -33,6 +34,7 @@ public class GameScreen implements Screen {
 
         // load the drop sound effect and the rain background "music"
         shotSound = Gdx.audio.newSound(Gdx.files.internal("shot.wav"));
+        tankEngine = Gdx.audio.newSound(Gdx.files.internal("tank_engine.wav"));
 
         music = Gdx.audio.newMusic(Gdx.files.internal("rain.mp3"));
         music.setLooping(true);
@@ -72,10 +74,10 @@ public class GameScreen implements Screen {
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
-            tank.x -= 200 * Gdx.graphics.getDeltaTime();
+           tank.moveLeft();
         }
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
-            tank.x += 200 * Gdx.graphics.getDeltaTime();
+            tank.moveRight();
         }
       }
 
