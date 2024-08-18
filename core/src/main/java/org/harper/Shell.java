@@ -1,5 +1,6 @@
 package org.harper;
 
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Pool;
 import lombok.Builder;
@@ -9,7 +10,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Builder
-public class Shell implements Pool.Poolable {
+public class Shell extends Rectangle implements Pool.Poolable {
 
     private static final Vector2 ACCELERATION = new Vector2(0, -10);
 
@@ -19,20 +20,20 @@ public class Shell implements Pool.Poolable {
     private int damage;
     private int blastRadius;
     private Vector2 velocity;
-    private Position position;
     private boolean alive;
 
     private Tank tank;
 
-    Shell(Position position, int caliber, String name, int maxVelocity, int damage, int blastRadius) {
+    Shell(int x, int y, int caliber, String name, int maxVelocity, int damage, int blastRadius) {
         this.caliber = caliber;
         this.name = name;
         this.maxVelocity = maxVelocity;
         this.damage = damage;
         this.alive = false;
-        this.position = position;
         this.velocity = new Vector2(0, 0);
         this.blastRadius = blastRadius;
+        this.x = x;
+        this.y = y;
     }
 
     public boolean fire() {
@@ -42,13 +43,14 @@ public class Shell implements Pool.Poolable {
     }
 
     public void update(Vector2 acceleration) {
-        position.move(velocity);
+        x += velocity.x;
+        y += velocity.y;
         velocity.add(acceleration);
         checkPosition();
     }
 
     private void checkPosition() {
-        if (velocity.x <= 0 || position.getY() <= 0) {
+        if (velocity.x <= 0 || this.y <= 0) {
             alive = false;
         }
     }
@@ -57,6 +59,7 @@ public class Shell implements Pool.Poolable {
     public void reset() {
         alive = false;
         velocity.set(0, 0);
-        position = tank.getPosition();
+        this.x = tank.getX();
+        this.y = tank.getY();
     }
 }
