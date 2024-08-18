@@ -9,15 +9,15 @@ import com.badlogic.gdx.utils.ScreenUtils;
 
 public class MainMenuScreen implements Screen {
 
-    final Main game;
-    OrthographicCamera camera;
+    final private Main game;
+    private OrthographicCamera camera;
 
     public SpriteBatch batch;
     public BitmapFont font;
 
     public MainMenuScreen(final Main game) {
         camera = new OrthographicCamera();
-        camera.setToOrtho(false, 800, 480);
+        camera.setToOrtho(false, 1920, 1080);
         this.game = game;
     }
 
@@ -34,7 +34,7 @@ public class MainMenuScreen implements Screen {
         game.batch.setProjectionMatrix(camera.combined);
 
         game.batch.begin();
-        game.font.draw(game.batch, "Welcome to Drop!!! ", 100, 150);
+        game.font.draw(game.batch, "Scorched Earth! ", 100, 150);
         game.font.draw(game.batch, "Tap anywhere to begin!", 100, 100);
         game.batch.end();
 

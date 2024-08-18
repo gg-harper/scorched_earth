@@ -7,7 +7,6 @@ import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.ScreenUtils;
 
@@ -15,23 +14,26 @@ public class GameScreen implements Screen {
 
     final Main game;
     private Battlefield battlefield;
-    final Texture dropImage;
-    final Texture bucketImage;
-    final Texture tankImage;
-    final Sound shotSound;
-    final Music music;
-    final OrthographicCamera camera;
-    final Tank tank;
+    final private Texture dropImage;
+    final private Texture bucketImage;
+    final private Texture tankImage;
+    final private Sound shotSound;
+    final private Sound blastSound;
+    final private Music music;
+    final private OrthographicCamera camera;
+    final private Tank tank;
 //    final Rectangle gun;
 
     public GameScreen(final Main game) {
         this.game = game;
+        blastSound = Gdx.audio.newSound(Gdx.files.internal("blast.wav"));
         dropImage = new Texture(Gdx.files.internal("drop.png"));
         bucketImage = new Texture(Gdx.files.internal("bucket.png"));
         tankImage = new Texture(Gdx.files.internal("tank1_64.png"));
 
         // load the drop sound effect and the rain background "music"
-        shotSound = Gdx.audio.newSound(Gdx.files.internal("drop.wav"));
+        shotSound = Gdx.audio.newSound(Gdx.files.internal("shot.wav"));
+
         music = Gdx.audio.newMusic(Gdx.files.internal("rain.mp3"));
         music.setLooping(true);
 
